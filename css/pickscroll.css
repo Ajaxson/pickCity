@@ -1,0 +1,36 @@
+/*base*/
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video { margin: 0; padding: 0; border: 0; font-size: 100%; font: inherit; vertical-align: baseline; }
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section { display: block; }
+body { line-height: 1; cursor: pointer; }
+ol, ul { list-style: none; }
+a{ text-decoration: none;  }
+blockquote, q { quotes: none; }
+blockquote:before, blockquote:after, q:before, q:after { content: ''; content: none; }
+table { border-collapse: collapse; border-spacing: 0; }
+* { font-size: 100%; tap-highlight-color: rgba(0, 0, 0, 0); -webkit-tap-highlight-color: rgba(0, 0, 0, 0); -ms-tap-highlight-color: rgba(0, 0, 0, 0); -webkit-box-sizing: border-box; -moz-box-sizing: border-box; -ms-box-sizing: border-box; box-sizing: border-box; }
+input, textarea { outline: 0; resize: none; }
+input[type="text"],/*input[type="radio"],*/input[type="checkbox"],input[type="submit"],input[type="date"],select{ -webkit-appearance:none ; }
+html,body { position: relative; width: 100%; height: 100%; font-size: 10px; font-family: Helvetica, sans-serif; }
+.wrap{ height: 100%; background: #FBFAFA; }
+
+/*demo*/
+html,body{ font-size: 10px; }
+.demobox{ display: -webkit-box; -webkit-box-pack: center; position: relative; width: 100%; height: 21rem; overflow: hidden; margin: 1rem 0; 
+		-webkit-mask-box-image: linear-gradient(to top, transparent, transparent 10%, white 20%, white 80%, transparent 90%, transparent);
+}
+.picker-box{ display: block; position: relative; z-index: 2; width: 30%; max-height: 100%; overflow: hidden; box-sizing: border-box; }
+.picker-box>*{ -webkit-transform: translate3d(0,0,0); -webkit-transition: all 0.3s ease-out;  }
+.picker-view .picker-item{ display: block; position: relative; width: 100%; height: 3.6rem; overflow: hidden; padding: 0 1rem; line-height: 3.6rem; text-align: center; text-overflow: ellipsis; white-space: nowrap; font-size: 1.8rem; color: #999; -webkit-transform: scale(0.95); }
+.picker-view .picker-item-selected{ color: #000; -webkit-transform: scale(1); }
+.hightline{ position: absolute; top: 50%; left: 0; width: 100%; height: 3.6rem; margin-top: -1.8rem; border-top: 1px solid #CECFD0; border-bottom: 1px solid #CECFD0; }
+
+/*输入框*/
+.input_box{ position: relative; top: 4rem; width: 90%; height: 3.6rem; margin: auto; background: #fff; }
+.input_tit{ display: inline-block; width: 8rem; height: 3.6rem; padding: 0 1rem; line-height: 3.6rem; font-size: 1.6rem; color: #999; }
+.input_data{ position: absolute; top: 0; left: 0; width: 100%; height: 100%; padding-left: 8rem; border: none; font-size: 2rem; color: #666; background: none; }
+
+/*弹出层*/
+.data-fixed{ position: fixed; bottom: 0; left: 0; z-index: 10010; width: 100%; background: #efeff4; -webkit-transition: all .5s; -webkit-transform: translate3d(0,100%,0); }
+.data-fixed.on{ -webkit-transform: translate3d(0,0,0); }
+.qury-tit{ position: relative; height: 3rem; border-top: 1px solid #CECFD0; line-height: 3rem; font-size: 1.6rem; color: #5f646e; text-align: center; background: #fff; }
+.ico_datasure{ position: absolute; top: 0; right: 0; padding: 0 1rem; font-size: 1.6rem; color: #0894ec; }

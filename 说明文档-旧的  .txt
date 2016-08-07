@@ -1,0 +1,45 @@
+转载请注明出处
+
+
+结构
+
+<div class="boxname">
+    	<div class="viewbox">
+		<div class="item">1</div>
+		<div class="item">2</div>
+	</div>
+</div>
+
+
+实例化
+new pickScroll(boxname,options)
+
+如
+var pickCounty = new pickScroll(".col-county",{
+			defaultIndex: 4，
+			ratio: 1.2，	
+			initCallback: function(){}，
+			endCallback: function(){}			
+		})
+
+boxname 必选，容器名
+
+defaultIndex 可选。 是第几个被选中，默认第一个被选中，
+
+ratio: 可选。 滑动系数，越大，滑动后劲越大， 默认1.2
+
+
+回调
+initCallback  初始完回调
+
+endCallback 滚动完回调
+
+
+函数
+
+_reffer 恢复初始状态某个
+
+如 endCallback: function(){
+  	xxx._reffer(); 
+  }
+			

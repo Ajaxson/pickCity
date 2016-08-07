@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+	<meta name="format-detection"content="telephone=no, email=no" />
+	<meta name="renderer" content="webkit">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="HandheldFriendly" content="true">
+	<meta name="MobileOptimized" content="320">
+	<meta name="screen-orientation" content="portrait">
+	<meta name="x5-orientation" content="portrait">
+	<meta name="full-screen" content="yes">
+	<meta name="x5-fullscreen" content="true">
+	<meta name="browsermode" content="application">
+	<meta name="x5-page-mode" content="app">
+	<meta name="msapplication-tap-highlight" content="no">
+	<meta name="viewport" content="width=device-width,target-densitydpi=device-dpi,maximum-scale=1.0, user-scalable=no">
+	<title>仿ios下拉效果</title>
+	<link rel="stylesheet" href="css/pickscroll.css">
+	<script type="text/javascript" src="js/city_json.js"></script>
+	<script type="text/javascript" src="js/test.js"></script>
+   	<script type="text/javascript" src="js/datascroll.js"></script>
+</head>
+<body>
+<div class="wrap" id="wrap">
+	
+	<div class="input_box">	
+		<span class="input_tit">省市区</span>
+		<input type="text" value="广东 广州 海珠区"  class="input_data" readonly >
+	</div>
+
+	<div class="data-fixed">
+		<div class="rebox">
+			<div class="qury-tit">
+				<p>请选择</p>
+				<span class="ico_datasure">确定</span>
+			</div>
+			<div class="demobox">
+				<div class="col-province picker-box">
+					<div class="picker-view">
+						<!-- 省份 -->
+					</div>
+				</div>
+				<div class="col-city picker-box">
+					<div class="picker-view">
+						<!-- 城市 -->
+					</div>
+				</div>
+				<div class="col-county picker-box">
+					<div class="picker-view">
+						<!-- 区、县 -->
+					</div>
+				</div>
+				<div class="hightline"></div>
+			</div>
+
+		</div>
+	</div>
+	<script type="text/javascript">
+		// 渲染列表
+		var cityList = new cityTest(".input_data",{});
+
+		// 滚动
+		var pickProvince = new pickScroll(".col-province",{
+							defaultIndex: cityList.proIndex,
+							endCallback: function(){
+								cityList._twoAppend(pickProvince.options.defaultIndex);
+								cityList._threeAppend(pickProvince.options.defaultIndex,0);
+								pickCity._reffer();	
+								pickCounty._reffer();
+							}
+					  })
+		var pickCity = new pickScroll(".col-city",{
+							defaultIndex: cityList.cityIndex,
+							endCallback: function(){
+								cityList._threeAppend(pickProvince.options.defaultIndex, pickCity.options.defaultIndex);
+								pickCounty._reffer();
+							}
+					  })
+		var pickCounty = new pickScroll(".col-county",{
+							defaultIndex: cityList.countyIndex,
+							sureCallback: function(){
+
+								var provalue = document.querySelector(".col-province .picker-item-selected").innerHTML;
+								var cityvalue = document.querySelector(".col-city .picker-item-selected").innerHTML;
+								if(document.querySelector(".col-county .picker-item-selected")){
+									var countyvalue = " " + document.querySelector(".col-county .picker-item-selected").innerHTML;
+								}else{
+									var countyvalue = ""
+								}
+								var newvalue = provalue + " " + cityvalue + countyvalue;
+								provalue = document.querySelector(".input_data").setAttribute("value",newvalue)
+								
+							}
+					  })
+	</script>
+
+</div>
+</body>
+</html>
